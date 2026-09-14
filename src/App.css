@@ -41,12 +41,13 @@ html, body {
    ========================================== */
 .navbar {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column; /* ترتيب العناصر رأسياً على الموبايل */
   align-items: center;
+  gap: 12px;
   background-color: rgba(30, 41, 59, 0.95);
   border-bottom: 1px solid var(--border-color);
-  padding: 18px 40px;
-  margin: 0 -40px 30px -40px; /* ممتد بكامل عرض الشاشة */
+  padding: 12px 16px; /* تقليل الحشو الداخلي */
+  margin: 0 -16px 20px -16px;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -56,31 +57,33 @@ html, body {
 .nav-brand {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
 }
 
 .brand-icon {
-  font-size: 26px;
+  font-size: 20px; /* تصغير حجم الأيقونة */
 }
 
 .brand-title {
   color: var(--accent-gold);
-  font-size: 22px;
+  font-size: 17px; /* تصغير حجم العنوان */
   font-weight: bold;
 }
 
 .nav-menu {
   display: flex;
-  gap: 15px;
+  gap: 8px;
+  width: 100%;
+  justify-content: center;
 }
 
 .nav-btn {
   background: transparent;
   border: 1px solid var(--border-color);
   color: var(--text-light);
-  padding: 9px 20px;
-  border-radius: 20px;
-  font-size: 14px;
+  padding: 6px 14px; /* تقليل حشو الأزرار */
+  border-radius: 16px;
+  font-size: 13px; /* تصغير حجم الخط */
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -92,6 +95,34 @@ html, body {
   font-weight: bold;
 }
 
+/* التنسيقات للشاشات الكبيرة (الشاشات والأجهزة اللوحية) */
+@media (min-width: 640px) {
+  .navbar {
+    flex-direction: row; /* العودة للترتيب الأفقي */
+    justify-content: space-between;
+    padding: 18px 40px;
+    margin: 0 -40px 30px -40px;
+  }
+
+  .brand-icon {
+    font-size: 26px;
+  }
+
+  .brand-title {
+    font-size: 22px;
+  }
+
+  .nav-menu {
+    width: auto;
+    gap: 15px;
+  }
+
+  .nav-btn {
+    padding: 9px 20px;
+    font-size: 14px;
+    border-radius: 20px;
+  }
+}
 /* ==========================================
    3. بنر الهيدر الرئيسي (Hero Banner)
    ========================================== */
